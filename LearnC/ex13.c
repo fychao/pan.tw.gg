@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
+#include <time.h> // for random seed
 
 void bouble_sort(int *alist, int max_idx);
 
@@ -11,6 +11,7 @@ int main(void)
 	int int_list_b[10];
 	printf("sizeof(int)=%d \n", sizeof(int));
 
+	// setting random seed 
 	time_t t;
 	srand((unsigned) time(&t));
 /*
@@ -28,7 +29,7 @@ int main(void)
 		*(int_list + idx*sizeof(int) ) = rand() % 100;
 	}
 
-	bouble_sort(int_list, 10);
+	bouble_sort(int_list, 10); // calling sorting
 	
 	printf("After sorting: \n");
 	
