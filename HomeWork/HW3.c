@@ -7,28 +7,28 @@
 int CheckNum(int num);
 
 //Function: Check the answer that user input and return nAnB.
-//int CheckAns(int answer, int input);
+int CheckAns(int answer[4], int input[4]);
 
 //Function: Bubble Sort.
 void BubbleSort(int *alist, int max_idx);
 
 int main(void)
 {
-	int idx=0;
-	//set random seed 
-	time_t t;
-	srand((unsigned) time(&t));
+    int idx=0;
+	  //set random seed 
+	  time_t t;
+	  srand((unsigned) time(&t));
 	
-	int *int_list;
-	int_list=(int *)malloc(sizeof(int));
+	  int *int_list;
+	  int_list=(int *)malloc(sizeof(int));
         
-        // make a number	
-        int num = *(int_list+idx*sizeof(int));
-	for(idx=0;idx<1;idx++)
-	{
+    // make a number	
+    int num = *(int_list+idx*sizeof(int));
+	  for(idx=0;idx<1;idx++)
+	  {
 
-		//while (int returned_CheckNum)
-		int returned_CheckNum = 0;
+		    //while (int returned_CheckNum)
+		    int returned_CheckNum = 0;
                 while(returned_CheckNum == 0)
                 {
 		    *(int_list+idx*sizeof(int))=rand()%10000;
@@ -38,65 +38,61 @@ int main(void)
                     num = *(int_list+idx*sizeof(int));
                 }                
                 printf("Game Started!!\n");                                  
-                printf("1.the answer=%d\n", *(int_list+idx*sizeof(int)));
-                
-	}
+                //printf("1.the answer=%d\n", *(int_list+idx*sizeof(int)));               
+	   }
 
-        //change the number into array
-        printf("2.the answer=%d\n", num);
-        int a,b,c,d,e,f,g,h;
-	a=num;
-	b=num%1000;
-	c=num%100;
-	d=num%10;
+    //change the number into array
+    //printf("2.the answer=%d\n", num);
+    int a,b,c,d,e,f,g,h;
+	  a=num;
+	  b=num%1000;
+	  c=num%100;
+	  d=num%10;
 	
-	e=d;//ones
-	f=(c-d)/10;//tens 
-	g=(b-c)/100;//hundred
-	h=(a-b)/1000;//thousand
+	  e=d;//ones
+	  f=(c-d)/10;//tens 
+  	g=(b-c)/100;//hundred
+	  h=(a-b)/1000;//thousand
         
-        int p[3];
-	p[0]=h;
-        p[1]=g;
-        p[2]=f;
-        p[3]=e;
-        for(idx=0;idx<4;idx++)
-        {
-            printf("p[%d]=%d\n",idx,p[idx]);
-        }
+    int p[3];
+    p[0]=h;
+    p[1]=g;
+    p[2]=f;
+    p[3]=e;
+    for(idx=0;idx<4;idx++)
+    {
+        printf("p[%d]=%d\n",idx,p[idx]);
+    }
 
             
 
-        //user input
-        int user_input[4];
-        printf("Guess A Number!!!~~\n");
-        for(idx=0;idx<4;idx++)
-        {
-            scanf(" %d",&user_input[idx]);
-        }
+    //user input
+    int user_input[4];
+    printf("Guess A Number!!!~~\n");
+    for(idx=0;idx<4;idx++)
+    {
+        scanf(" %d",&user_input[idx]);
+    }
 
-        for(idx=0;idx<4;idx++)
-        {
-            printf("user_input[%d]=%d\n",idx,user_input[idx]);
-        }
+    for(idx=0;idx<4;idx++)
+    {
+        printf("user_input[%d]=%d\n",idx,user_input[idx]);
+    }
 
 
-        /*
-	//buble sort
-	BubbleSort(int_list, 10);
+    /*
+	  //buble sort
+ 	  BubbleSort(int_list, 10);
 	
-	printf("After Sorting:\n");
+	  printf("After Sorting:\n");
 	
-	for(idx=0;idx<10;idx++)
-	{
-            printf("idx=%d, int_list=%d\n",idx,*(int_list+idx*sizeof(int)));
-	}
-	*/
-	
-	
-	
-	
-	return 0;
+	  for(idx=0;idx<10;idx++)
+    {
+        printf("idx=%d, int_list=%d\n",idx,*(int_list+idx*sizeof(int)));
+	  }
+	  */
+    int CheckAns(int answer[4], int input[4])
+	  return 0;
 }
 
 int CheckNum(int num)
@@ -145,10 +141,22 @@ void BubbleSort(int *alist, int max_idx)
 
 int CheckAns(int answer[4], int input[4])
 {
-    int i,j;
+    int i,j,A=0,B=0;
     for(i=0;i<4;i++)
     {
-
+        if(answer[i]==input[i])
+        {
+            return A+1;
+        }
+			  for(j=1;j<4;j++)
+        {
+            if(answer[i]==input[j] && answer[i]!=input[i])
+						{
+						    return B+1;
+						}
+        }
     }
-    
+   
 }
+
+
